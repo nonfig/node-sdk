@@ -2,9 +2,9 @@
   "name": "@nonfig/node-sdk",
   "version": "1.0.0",
   "description": "Nodejs SDK for Nonfig",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "tsc && node dist/app.js",
+    "start": "tsc --project tsconfig.json",
     "test": "npm test",
     "lint": "tslint -c tslint.json 'src/**/*.ts'"
   },
