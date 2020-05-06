@@ -1,0 +1,41 @@
+{
+  "name": "@nonfig/node-sdk",
+  "version": "1.0.0",
+  "description": "Nodejs SDK for Nonfig",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node dist/app.js",
+    "test": "npm test",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nonfig/node-sdk.git"
+  },
+  "keywords": [
+    "configuration",
+    "software",
+    "configurations",
+    "nonfig",
+    "nonfig sdk"
+  ],
+  "author": "Nonfig <engineering@nonfig.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nonfig/node-sdk/issues"
+  },
+  "homepage": "https://github.com/nonfig/node-sdk#readme",
+  "devDependencies": {
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "mocha": "7.1.2",
+    "nyc": "15.0.1",
+    "prettier": "2.0.5",
+    "tslint": "6.1.2",
+    "typescript": "3.8.3"
+  },
+  "dependencies": {
+    "@types/node-fetch": "^2.5.7",
+    "node-fetch": "2.6.0"
+  }
+}
