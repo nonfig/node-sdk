@@ -7,7 +7,8 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - node/install-packages
+      - node/install:
+        node-version: latest
       - run:
         command: npm run lint
       - run:
