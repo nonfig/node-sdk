@@ -3,17 +3,13 @@ orbs:
   node: circleci/node@1.1.6
 jobs:
   build-and-test:
-    executor:
-      name: node/default
+    executor: "node/default"
     steps:
       - checkout
-      - node/install:
-        node-version: latest
-      - run:
-        command: npm run lint
-      - run:
-        command: npm start
+      - run: npm install
+      - run: npm run lint
+      - run: npm run compile
 workflows:
-    build-and-test:
-      jobs:
-        - build-and-test
+  build-and-test:
+    jobs:
+      - build-and-test
