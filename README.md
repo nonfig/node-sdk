@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/nonfig/node-sdk/tree/master.svg?style=shield)](https://circleci.com/gh/nonfig/node-sdk/tree/master)
+
+
 # node-sdk
 Node SDK for nonfin | Manage your configurations NOW!
 
