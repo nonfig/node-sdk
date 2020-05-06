@@ -1,6 +1,6 @@
-import {IOption, IConnection} from './interfaces'
+import {IOption, IConnection} from './interfaces';
 import fetch from "node-fetch";
-import Package from '../package.json'
+import Package from '../package.json';
 
 export default class Api {
 
@@ -22,7 +22,7 @@ export default class Api {
       'Content-Type': 'application/json',
       Accept: 'application/json',
       Authorization: `Bearer ${this._options.appId}:${this._options.appSecret}`
-    }
+    };
   }
 
   private getQualifiedUrl(path): string {

@@ -1,12 +1,12 @@
 {
   "name": "@nonfig/node-sdk",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Nodejs SDK for Nonfig",
   "main": "dist/index.js",
   "scripts": {
     "start": "tsc --project tsconfig.json",
     "test": "npm test",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'"
+    "lint": "tslint -c tslint.json --project ."
   },
   "repository": {
     "type": "git",
