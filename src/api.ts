@@ -1,27 +1,40 @@
 import {IOption, IConnection} from './interfaces';
 import fetch from "node-fetch";
 import Package from '../package.json';
+import {IConfigurationResponse} from "./interfaces/IConfiguration";
 
 export default class Api {
 
   private _options: IOption;
-  private _connection: IConnection;
+  private readonly _connection: IConnection;
 
   constructor(connection: IConnection, options: IOption) {
     this._connection = connection;
     this._options = options;
   }
 
-  public findByPath(path: string): Promise<object> {
+  public findByPath(path: string): Promise<IConfigurationResponse> {
     return this.runFetchRequest(`configurations/path/${path}`);
+  }
+
+  public findByName(name: string): Promise<IConfigurationResponse> {
+    return this.runFetchRequest(`configurations/name/${name}`);
+  }
+
+  public findById(id: string): Promise<IConfigurationResponse> {
+    return this.runFetchRequest(`configurations/id/${id}`);
+  }
+
+  public findByLabels(labels: string[]): Promise<IConfigurationResponse> {
+    return this.runFetchRequest(`configurations/labels/${labels.join(",")}`);
   }
 
   private getHeaders() {
     return {
       'User-Agent': `Nonfig/v1 NodeBindings/${Package.version}`,
       'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Authorization: `Bearer ${this._options.appId}:${this._options.appSecret}`
+      "Accept": 'application/json',
+      "Authorization": `Bearer ${this._options.appId}:${this._options.appSecret}`
     };
   }
 
@@ -31,7 +44,7 @@ export default class Api {
     return `https://${host}:${port}${basePath}${apiVersion}/${path}`;
   }
 
-  private runFetchRequest(path: string): Promise<object> {
+  private runFetchRequest(path: string): Promise<IConfigurationResponse> {
     const request = fetch(
       this.getQualifiedUrl(path),
       {
@@ -40,13 +53,11 @@ export default class Api {
       }
     );
 
-    return this.handleResponse(request);
+    return Api.handleResponse(request);
   }
 
-  private async handleResponse(request: Promise<any>) {
+  private static async handleResponse(request: Promise<any>) {
     const response = await request;
-    const body = response.json();
-
-    return [];
+    return response.json();
   }
 }
