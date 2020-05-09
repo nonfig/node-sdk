@@ -58,6 +58,7 @@ export default class Api {
 
   private static async handleResponse(request: Promise<any>) {
     const response = await request;
+
     return response.json();
   }
 }

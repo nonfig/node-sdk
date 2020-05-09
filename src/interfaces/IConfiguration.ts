@@ -11,7 +11,7 @@ export interface IConfiguration {
 }
 
 export interface IConfigurationResponse {
-    success: boolean,
+    success: boolean;
     error: string | null;
     count: number;
     data: IConfiguration[];

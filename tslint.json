@@ -14,7 +14,8 @@
         "max-line-length": [true, 80],
         "newline-before-return": true,
         "no-trailing-whitespace": true,
-        "semicolon": true
+        "semicolon": true,
+        "no-unused-expression": true
     },
     "rulesDirectory": []
 }

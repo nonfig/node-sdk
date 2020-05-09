@@ -20,4 +20,4 @@ export const options: IOption = {
     debug: false,
     cacheEnable: false,
     cacheTtl: 1000
-}
+};
