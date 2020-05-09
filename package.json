@@ -6,7 +6,8 @@
   "scripts": {
     "start": "tsc --project tsconfig.json",
     "compile": "tsc --project tsconfig.json",
-    "lint": "tslint -c tslint.json --project ."
+    "lint": "tslint -c tslint.json --project .",
+    "test": "npm run compile && mocha ./dist/tests/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -26,11 +27,16 @@
   },
   "homepage": "https://github.com/nonfig/node-sdk#readme",
   "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/sinon": "^9.0.0",
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
+    "lodash.get": "^4.4.2",
     "mocha": "7.1.2",
     "nyc": "15.0.1",
     "prettier": "2.0.5",
+    "sinon": "^9.0.2",
     "tslint": "6.1.2",
     "typescript": "3.8.3"
   },
