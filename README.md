@@ -2,7 +2,7 @@
 
 
 # node-sdk
-Node SDK for nonfin | Manage your configurations NOW!
+Node SDK for nonfig | Manage your configurations NOW!
 
 The open source SDK will ease the integration with your platform if you are running on Python. For more information about the documentation, please check out docs.nonfig.com
 
