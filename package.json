@@ -8,7 +8,7 @@
     "compile": "tsc --project tsconfig.json",
     "lint": "tslint -c tslint.json --project .",
     "test": "npm run compile && mocha ./dist/tests/**/*.test.js",
-    "coverage": "nyc npm test",
+    "coverage": "nyc npm test && npm run coverage:report",
     "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "repository": {
