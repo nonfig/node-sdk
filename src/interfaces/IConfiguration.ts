@@ -1,3 +1,5 @@
+import {NonfigError} from "../error";
+
 export interface IConfiguration {
     id: string;
     fullyQualifiedName: string;
@@ -16,3 +18,5 @@ export interface IConfigurationResponse {
     count: number;
     data: IConfiguration[];
 }
+
+export type NonfigResponse = IConfiguration[] | NonfigError;

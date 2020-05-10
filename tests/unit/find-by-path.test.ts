@@ -3,11 +3,11 @@ import {connection, options, testResponse} from "../constants";
 import Api from "../../src/api";
 import {expect} from "chai";
 import {get} from "lodash";
-import {NonfigError} from "../../src/error";
+import {IConfiguration} from "../../src/interfaces";
 import {NonfigRequest} from "../../src/request";
 
 /* tslint:disable:no-unused-expression */
-describe("Find Configurations by id", () => {
+describe("Find Configurations by path", () => {
     let api: Api;
     let request: sinon.SinonStub;
 
@@ -21,24 +21,19 @@ describe("Find Configurations by id", () => {
     });
 
     it("should return configuration", async () => {
-        const stubId = "random-id";
+        const path = "/some/path/";
         request.resolves(testResponse);
-        const configuration = await api.findById(stubId);
+        const configuration = await api.findByPath(path);
         expect(request.calledOnce).to.be.true;
-        expect(get(configuration, "0.id")).to.equal(stubId);
-        expect(get(configuration, "0.version")).to.equal(1);
+        expect((configuration as IConfiguration[]).length).to.equal(1);
+        expect(get(configuration, "0.path")).to.equal(path);
     });
 
-    it("should return error for non-existent id", async () => {
-        const stubId = "invalid-id";
-        const error = new NonfigError("Not Found");
-        request.throws(error);
-        try {
-            await api.findById(stubId);
-        } catch (e) {
-            expect(e instanceof NonfigError).to.be.true;
-            expect((e as NonfigError).message).to.equal("Not Found");
-        }
+    it("should return empty array for non-existent path ", async () => {
+        const path = "non-existent";
+        request.resolves([]);
+        const configurations = await api.findByPath(path);
         expect(request.calledOnce).to.be.true;
+        expect((configurations as IConfiguration[]).length).to.equal(0);
     });
 });

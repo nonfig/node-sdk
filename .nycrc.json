@@ -1,0 +1,5 @@
+{
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "all": false,
+    "exclude": ["src/request.ts"]
+}

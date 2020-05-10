@@ -7,7 +7,9 @@
     "start": "tsc --project tsconfig.json",
     "compile": "tsc --project tsconfig.json",
     "lint": "tslint -c tslint.json --project .",
-    "test": "npm run compile && mocha ./dist/tests/**/*.test.js"
+    "test": "npm run compile && mocha ./dist/tests/**/*.test.js",
+    "coverage": "nyc npm test",
+    "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "repository": {
     "type": "git",
@@ -27,21 +29,25 @@
   },
   "homepage": "https://github.com/nonfig/node-sdk#readme",
   "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@types/chai": "^4.2.11",
-    "@types/mocha": "^7.0.2",
-    "@types/sinon": "^9.0.0",
+    "@types/mocha": "7.0.2",
+    "@types/sinon": "9.0.0",
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
-    "lodash.get": "^4.4.2",
+    "codecov": "^3.6.5",
+    "lodash.get": "4.4.2",
     "mocha": "7.1.2",
-    "nyc": "15.0.1",
+    "nyc": "^15.0.1",
     "prettier": "2.0.5",
-    "sinon": "^9.0.2",
+    "sinon": "9.0.2",
+    "source-map-support": "^0.5.19",
+    "ts-node": "^8.10.1",
     "tslint": "6.1.2",
     "typescript": "3.8.3"
   },
   "dependencies": {
-    "@types/node-fetch": "^2.5.7",
+    "@types/node-fetch": "2.5.7",
     "node-fetch": "2.6.0"
   }
 }

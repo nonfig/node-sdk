@@ -3,11 +3,11 @@ import {connection, options, testResponse} from "../constants";
 import Api from "../../src/api";
 import {expect} from "chai";
 import {get} from "lodash";
-import {NonfigError} from "../../src/error";
+import {IConfiguration} from "../../src/interfaces";
 import {NonfigRequest} from "../../src/request";
 
 /* tslint:disable:no-unused-expression */
-describe("Find Configurations by id", () => {
+describe("Find Configurations by labels", () => {
     let api: Api;
     let request: sinon.SinonStub;
 
@@ -21,24 +21,19 @@ describe("Find Configurations by id", () => {
     });
 
     it("should return configuration", async () => {
-        const stubId = "random-id";
+        const labels = ["test"];
         request.resolves(testResponse);
-        const configuration = await api.findById(stubId);
+        const configuration = await api.findByLabels(labels);
         expect(request.calledOnce).to.be.true;
-        expect(get(configuration, "0.id")).to.equal(stubId);
-        expect(get(configuration, "0.version")).to.equal(1);
+        expect((configuration as IConfiguration[]).length).to.equal(1);
+        expect(get(configuration, "0.label")).to.eql(labels);
     });
 
-    it("should return error for non-existent id", async () => {
-        const stubId = "invalid-id";
-        const error = new NonfigError("Not Found");
-        request.throws(error);
-        try {
-            await api.findById(stubId);
-        } catch (e) {
-            expect(e instanceof NonfigError).to.be.true;
-            expect((e as NonfigError).message).to.equal("Not Found");
-        }
+    it("should return empty array for non-existent label", async () => {
+        const labels = ["non-existent-label"];
+        request.resolves([]);
+        const configurations = await api.findByLabels(labels);
         expect(request.calledOnce).to.be.true;
+        expect((configurations as IConfiguration[]).length).to.equal(0);
     });
 });
