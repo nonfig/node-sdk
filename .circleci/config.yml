@@ -10,7 +10,6 @@ jobs:
       - run: npm run lint
       - run: npm run compile
       - run: npm run test
-      - run: npm run coverage:report
 workflows:
   build-and-test:
     jobs:
