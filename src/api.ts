@@ -39,7 +39,7 @@ export default class Api {
     }
 
     private getQualifiedUrl(path): string {
-        const {host, port, basePath, apiVersion} = this._connection;
+        const { host, port, basePath, apiVersion } = this._connection;
 
         return `https://${host}:${port}${basePath}${apiVersion}/${path}`;
     }
