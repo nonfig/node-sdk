@@ -8,8 +8,14 @@
     "compile": "tsc --project tsconfig.json",
     "lint": "tslint -c tslint.json --project .",
     "test": "npm run compile && mocha ./dist/tests/**/*.test.js",
-    "coverage": "nyc npm test && npm run coverage:report",
-    "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "coverage": "nyc npm test",
+    "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "pretty": "prettier --write ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pretty"
+    }
   },
   "repository": {
     "type": "git",
@@ -36,10 +42,11 @@
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "codecov": "^3.6.5",
+    "husky": "^4.2.5",
     "lodash.get": "4.4.2",
     "mocha": "7.1.2",
     "nyc": "^15.0.1",
-    "prettier": "2.0.5",
+    "prettier": "^2.0.5",
     "sinon": "9.0.2",
     "source-map-support": "^0.5.19",
     "ts-node": "^8.10.1",
