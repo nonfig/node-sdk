@@ -16,9 +16,9 @@
       80
     ],
     "newline-before-return": true,
-        "no-trailing-whitespace": true,
-        "semicolon": true,
-        "no-unused-expression": true
-    },
-    "rulesDirectory": []
+    "no-trailing-whitespace": true,
+    "semicolon": true,
+    "no-unused-expression": true
+  },
+  "rulesDirectory": []
 }
