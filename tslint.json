@@ -1,18 +1,21 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "no-namespace": true,
+    "no-parameter-reassignment": true,
+    "no-var-requires": true,
+    "ban": true,
+    "curly": true,
+    "no-construct": true,
+    "max-line-length": [
+      true,
+      80
     ],
-    "jsRules": {},
-    "rules": {
-        "no-namespace": true,
-        "no-parameter-reassignment": true,
-        "no-var-requires": true,
-        "ban": true,
-        "curly": true,
-        "no-construct": true,
-        "max-line-length": [true, 80],
-        "newline-before-return": true,
+    "newline-before-return": true,
         "no-trailing-whitespace": true,
         "semicolon": true,
         "no-unused-expression": true

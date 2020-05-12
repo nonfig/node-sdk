@@ -1,4 +1,4 @@
-import {NonfigError} from "../error";
+import {NonfigError} from '../error';
 
 export interface IConfiguration {
     id: string;

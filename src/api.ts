@@ -1,9 +1,8 @@
 import {IConnection, IOption, NonfigResponse} from './interfaces';
-import {NonfigRequest} from "./request";
-import {version} from "../package.json";
+import {NonfigRequest} from './request';
+import {version} from '../package.json';
 
 export default class Api {
-
     private _options: IOption;
     private readonly _connection: IConnection;
 
@@ -26,7 +25,7 @@ export default class Api {
 
     public findByLabels(labels: string[]): Promise<NonfigResponse> {
         return this.runFetchRequest(
-            `configurations/labels/${labels.join(",")}`
+            `configurations/labels/${labels.join(',')}`
         );
     }
 
@@ -34,8 +33,8 @@ export default class Api {
         return {
             'User-Agent': `Nonfig/v1 NodeBindings/${version}`,
             'Content-Type': 'application/json',
-            "Accept": 'application/json',
-            "Authorization": `Bearer ${this._options.appId}:${this._options.appSecret}`
+            Accept: 'application/json',
+            Authorization: `Bearer ${this._options.appId}:${this._options.appSecret}`,
         };
     }
 

@@ -1,60 +1,60 @@
 {
-  "name": "@nonfig/node-sdk",
-  "version": "0.0.1",
-  "description": "Nodejs SDK for Nonfig",
-  "main": "dist/index.js",
-  "scripts": {
-    "start": "tsc --project tsconfig.json",
-    "compile": "tsc --project tsconfig.json",
-    "lint": "tslint -c tslint.json --project .",
-    "test": "npm run compile && mocha ./dist/tests/**/*.test.js",
-    "coverage": "nyc npm test",
-    "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "pretty": "prettier --write ."
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run pretty"
+    "name": "@nonfig/node-sdk",
+    "version": "0.0.1",
+    "description": "Nodejs SDK for Nonfig",
+    "main": "dist/index.js",
+    "scripts": {
+        "start": "tsc --project tsconfig.json",
+        "compile": "tsc --project tsconfig.json",
+        "lint": "tslint -c tslint.json --project .",
+        "test": "npm run compile && mocha ./dist/tests/**/*.test.js",
+        "coverage": "nyc npm test",
+        "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+        "pretty": "prettier --write ."
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run pretty"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nonfig/node-sdk.git"
+    },
+    "keywords": [
+        "configuration",
+        "software",
+        "configurations",
+        "nonfig",
+        "nonfig sdk"
+    ],
+    "author": "Nonfig <engineering@nonfig.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/nonfig/node-sdk/issues"
+    },
+    "homepage": "https://github.com/nonfig/node-sdk#readme",
+    "devDependencies": {
+        "@istanbuljs/nyc-config-typescript": "^1.0.1",
+        "@types/chai": "^4.2.11",
+        "@types/mocha": "7.0.2",
+        "@types/sinon": "9.0.0",
+        "chai": "4.2.0",
+        "chai-as-promised": "7.1.1",
+        "codecov": "^3.6.5",
+        "husky": "^4.2.5",
+        "lodash.get": "4.4.2",
+        "mocha": "7.1.2",
+        "nyc": "^15.0.1",
+        "prettier": "^2.0.5",
+        "sinon": "9.0.2",
+        "source-map-support": "^0.5.19",
+        "ts-node": "^8.10.1",
+        "tslint": "6.1.2",
+        "typescript": "3.8.3"
+    },
+    "dependencies": {
+        "@types/node-fetch": "2.5.7",
+        "node-fetch": "2.6.0"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nonfig/node-sdk.git"
-  },
-  "keywords": [
-    "configuration",
-    "software",
-    "configurations",
-    "nonfig",
-    "nonfig sdk"
-  ],
-  "author": "Nonfig <engineering@nonfig.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nonfig/node-sdk/issues"
-  },
-  "homepage": "https://github.com/nonfig/node-sdk#readme",
-  "devDependencies": {
-    "@istanbuljs/nyc-config-typescript": "^1.0.1",
-    "@types/chai": "^4.2.11",
-    "@types/mocha": "7.0.2",
-    "@types/sinon": "9.0.0",
-    "chai": "4.2.0",
-    "chai-as-promised": "7.1.1",
-    "codecov": "^3.6.5",
-    "husky": "^4.2.5",
-    "lodash.get": "4.4.2",
-    "mocha": "7.1.2",
-    "nyc": "^15.0.1",
-    "prettier": "^2.0.5",
-    "sinon": "9.0.2",
-    "source-map-support": "^0.5.19",
-    "ts-node": "^8.10.1",
-    "tslint": "6.1.2",
-    "typescript": "3.8.3"
-  },
-  "dependencies": {
-    "@types/node-fetch": "2.5.7",
-    "node-fetch": "2.6.0"
-  }
 }
