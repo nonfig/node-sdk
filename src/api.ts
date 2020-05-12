@@ -1,6 +1,6 @@
-import {IConnection, IOption, NonfigResponse} from './interfaces';
-import {NonfigRequest} from './request';
-import {version} from '../package.json';
+import { IConnection, IOption, NonfigResponse } from './interfaces';
+import { NonfigRequest } from './request';
+import { version } from '../package.json';
 
 export default class Api {
     private _options: IOption;

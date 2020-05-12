@@ -1,10 +1,10 @@
 import * as sinon from 'sinon';
-import {connection, options, testResponse} from '../constants';
+import { connection, options, testResponse } from '../constants';
 import Api from '../../src/api';
-import {expect} from 'chai';
-import {get} from 'lodash';
-import {IConfiguration} from '../../src/interfaces';
-import {NonfigRequest} from '../../src/request';
+import { expect } from 'chai';
+import { get } from 'lodash';
+import { IConfiguration } from '../../src/interfaces';
+import { NonfigRequest } from '../../src/request';
 
 /* tslint:disable:no-unused-expression */
 describe('Find Configurations by path', () => {

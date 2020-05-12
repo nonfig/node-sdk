@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
-import {IConfigurationResponse, IHeaders, NonfigResponse} from './interfaces';
-import {NonfigError} from './error';
+import { IConfigurationResponse, IHeaders, NonfigResponse } from './interfaces';
+import { NonfigError } from './error';
 
 export class NonfigRequest {
     static async exec(

@@ -1,4 +1,4 @@
-import {IConnection, IOption} from './src/interfaces';
+import { IConnection, IOption } from './src/interfaces';
 import Api from './src/api';
 
 const DEFAULT_HOST = 'api.nonfig.com';

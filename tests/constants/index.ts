@@ -1,4 +1,4 @@
-import {IConnection, IOption, NonfigResponse} from '../../src/interfaces';
+import { IConnection, IOption, NonfigResponse } from '../../src/interfaces';
 
 const DEFAULT_HOST = 'localhost';
 const DEFAULT_PORT = 443;
