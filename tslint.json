@@ -1,8 +1,6 @@
 {
     "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
+    "extends": ["tslint:recommended"],
     "jsRules": {},
     "rules": {
         "no-namespace": true,
@@ -14,7 +12,8 @@
         "max-line-length": [true, 80],
         "newline-before-return": true,
         "no-trailing-whitespace": true,
-        "semicolon": true
+        "semicolon": true,
+        "no-unused-expression": true
     },
     "rulesDirectory": []
 }
