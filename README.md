@@ -4,7 +4,7 @@
 
 Node SDK for nonfig | Manage your configurations NOW!
 
-The open source SDK will ease the integration with your platform if you are running on Python. For more information about the documentation, please check out docs.nonfig.com
+The open source SDK will ease the integration with your platform if you are running on node.js. For more information about the documentation, please check out docs.nonfig.com
 
 ## Docs
 

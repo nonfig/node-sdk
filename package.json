@@ -1,8 +1,11 @@
 {
     "name": "@nonfig/node-sdk",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Nodejs SDK for Nonfig",
     "main": "dist/index.js",
+    "files": [
+        "dist/*"
+    ],
     "scripts": {
         "start": "tsc --project tsconfig.json",
         "compile": "tsc --project tsconfig.json",
@@ -10,11 +13,12 @@
         "test": "npm run compile && mocha ./dist/tests/**/*.test.js",
         "coverage": "nyc npm test",
         "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-        "pretty": "prettier --write ."
+        "pretty": "prettier --write .",
+        "prepublish": "npm run compile"
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run pretty"
+            "pre-commit": "npm run pretty && npm test"
         }
     },
     "repository": {
