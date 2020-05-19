@@ -1,3 +1,4 @@
+import 'module-alias/register';
 import { IConnection, IOption } from './src/interfaces';
 import Api from './src/api';
 
@@ -7,7 +8,7 @@ const DEFAULT_BASE_PATH = '/';
 const DEFAULT_API_VERSION = 'v1';
 const DEFAULT_TIMEOUT = 80000;
 
-export function nonfig(options: IOption) {
+export default function nonfig(options: IOption) {
     const connection: IConnection = {
         host: DEFAULT_HOST,
         port: DEFAULT_PORT,

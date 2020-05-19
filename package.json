@@ -56,6 +56,10 @@
     },
     "dependencies": {
         "@types/node-fetch": "2.5.7",
+        "module-alias": "^2.2.2",
         "node-fetch": "2.6.0"
+    },
+    "_moduleAliases": {
+        "@package": "./dist/package.json"
     }
 }
