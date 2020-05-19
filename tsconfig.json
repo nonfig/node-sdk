@@ -2,11 +2,17 @@
     "compilerOptions": {
         "module": "commonjs",
         "resolveJsonModule": true,
-        "esModuleInterop": true,
+        "esModuleInterop": false,
         "target": "es6",
         "moduleResolution": "node",
         "sourceMap": true,
-        "outDir": "dist"
+        "outDir": "dist",
+        "declaration": true,
+        "baseUrl": ".",
+        "paths": {
+            "@package": ["./package.json"]
+        }
     },
-    "lib": ["es2015"]
+    "lib": ["es2015"],
+    "include": ["./"]
 }

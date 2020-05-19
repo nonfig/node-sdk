@@ -1,0 +1,8 @@
+**/**
+
+!dist/src/**/*
+!dist/index.*
+!dist/package*
+
+dist/**/**.map
+dist/package.json

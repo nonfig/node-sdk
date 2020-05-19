@@ -1,11 +1,8 @@
 {
     "name": "@nonfig/node-sdk",
-    "version": "0.0.2",
+    "version": "0.0.7",
     "description": "Nodejs SDK for Nonfig",
     "main": "dist/index.js",
-    "files": [
-        "dist/*"
-    ],
     "scripts": {
         "start": "tsc --project tsconfig.json",
         "compile": "tsc --project tsconfig.json",
@@ -59,6 +56,10 @@
     },
     "dependencies": {
         "@types/node-fetch": "2.5.7",
+        "module-alias": "^2.2.2",
         "node-fetch": "2.6.0"
+    },
+    "_moduleAliases": {
+        "@package": "./dist/package.json"
     }
 }

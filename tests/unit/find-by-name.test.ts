@@ -1,18 +1,18 @@
 import * as sinon from 'sinon';
-import { connection, options, testResponse } from '../constants';
+import { options, testResponse } from '../constants';
 import Api from '../../src/api';
 import { expect } from 'chai';
 import { get } from 'lodash';
 import { IConfiguration } from '../../src/interfaces';
 import { NonfigRequest } from '../../src/request';
+import nonfig from '../../index';
 
-/* tslint:disable:no-unused-expression */
 describe('Find Configurations by name', () => {
     let api: Api;
     let request: sinon.SinonStub;
 
     beforeEach(() => {
-        api = new Api(connection, options);
+        api = nonfig(options);
         request = sinon.stub(NonfigRequest, 'exec');
     });
 
