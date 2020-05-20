@@ -5,13 +5,15 @@ import { expect } from 'chai';
 import { get } from 'lodash';
 import { IConfiguration } from '../../src/interfaces';
 import { NonfigRequest } from '../../src/request';
-import nonfig from '../../index';
+import * as NonfigInternal from '../../index';
 
 describe('Find Configurations by labels', () => {
     let api: Api;
     let request: sinon.SinonStub;
+    let nonfig: any;
 
     beforeEach(() => {
+        nonfig = NonfigInternal;
         api = nonfig(options);
         request = sinon.stub(NonfigRequest, 'exec');
     });

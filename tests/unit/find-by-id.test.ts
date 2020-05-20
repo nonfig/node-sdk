@@ -1,6 +1,6 @@
 import * as sinon from 'sinon';
 import { options, testResponse } from '../constants';
-import nonfig from '../../index';
+import * as NonfigInternal from '../../index';
 import { expect } from 'chai';
 import { get } from 'lodash';
 import { NonfigError } from '../../src/error';
@@ -10,8 +10,10 @@ import Api from '../../src/api';
 describe('Find Configurations by id', () => {
     let api: Api;
     let request: sinon.SinonStub;
+    let nonfig: any;
 
     beforeEach(() => {
+        nonfig = NonfigInternal;
         api = nonfig(options);
         request = sinon.stub(NonfigRequest, 'exec');
     });
@@ -24,7 +26,7 @@ describe('Find Configurations by id', () => {
         const stubId = 'random-id';
         request.resolves(testResponse);
         const configuration = await api.findById(stubId);
-        expect(request.calledOnce).to.be.true;
+        expect(request.calledOnce).to.equal(true);
         expect(get(configuration, '0.id')).to.equal(stubId);
         expect(get(configuration, '0.version')).to.equal(1);
     });
