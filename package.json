@@ -1,8 +1,9 @@
 {
     "name": "@nonfig/node-sdk",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "description": "Nodejs SDK for Nonfig",
-    "main": "dist/index.js",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "scripts": {
         "start": "tsc --project tsconfig.json",
         "compile": "tsc --project tsconfig.json",
@@ -11,7 +12,7 @@
         "coverage": "nyc npm test",
         "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
         "pretty": "prettier --write .",
-        "prepublish": "npm run compile"
+        "prepublish": "npm run compile && npm test && npm version patch --no-git-tag-version"
     },
     "husky": {
         "hooks": {
@@ -56,7 +57,6 @@
     },
     "dependencies": {
         "@types/node-fetch": "2.5.7",
-        "module-alias": "^2.2.2",
         "node-fetch": "2.6.0"
     },
     "_moduleAliases": {
