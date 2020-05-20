@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/nonfig/node-sdk/tree/master.svg?style=shield)](https://circleci.com/gh/nonfig/node-sdk/tree/master)
+[![npm version](https://badge.fury.io/js/%40nonfig%2Fnode-sdk.svg)](https://badge.fury.io/js/%40nonfig%2Fnode-sdk)
 
 # node-sdk
 
