@@ -18,7 +18,6 @@ describe('Find Configurations by name', () => {
         request = sinon.stub(NonfigRequest, 'exec');
     });
 
-
     afterEach(() => {
         request.restore();
     });
