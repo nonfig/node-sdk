@@ -8,7 +8,7 @@ const DEFAULT_BASE_PATH = '/';
 const DEFAULT_API_VERSION = 'v1';
 const DEFAULT_TIMEOUT = 80000;
 
-export default function nonfig(options: IOption) {
+module.exports = function nonfig(options: IOption): Api {
     const connection: IConnection = {
         host: DEFAULT_HOST,
         port: DEFAULT_PORT,
@@ -18,4 +18,4 @@ export default function nonfig(options: IOption) {
     };
 
     return new Api(connection, options);
-}
+};

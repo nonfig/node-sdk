@@ -1,6 +1,5 @@
 import { IConnection, IOption, NonfigResponse } from './interfaces';
 import { NonfigRequest } from './request';
-import { version } from '@package';
 
 export default class Api {
     private _options: IOption;
@@ -31,7 +30,7 @@ export default class Api {
 
     private getHeaders() {
         return {
-            'User-Agent': `Nonfig/v1 NodeBindings/${version}`,
+            'User-Agent': `Nonfig/v1 NodeBindings`,
             'Content-Type': 'application/json',
             Accept: 'application/json',
             Authorization: `Bearer ${this._options.appId}:${this._options.appSecret}`,
