@@ -9,7 +9,7 @@ The open source SDK will ease the integration with your platform if you are runn
 
 ## Docs
 
-Checkout the extensive documentation with examples available [here](https://docs.nonfig.com/sdk/dotnet). If you have questions regarding the implementation, feel free to create a ticket or contact the support.
+Checkout the extensive documentation with examples available [here](https://docs.nonfig.com/sdk/nodejs). If you have questions regarding the implementation, feel free to create a ticket or contact the support.
 
 ## Guidelines
 
