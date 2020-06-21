@@ -10,6 +10,7 @@ export interface IConfiguration {
     description: string;
     type: string;
     data: string;
+    parsed?: any;
 }
 
 export interface IConfigurationResponse {
@@ -19,4 +20,4 @@ export interface IConfigurationResponse {
     data: IConfiguration[];
 }
 
-export type NonfigResponse = IConfiguration[] | NonfigError;
+export type NonfigResponse = IConfiguration[];

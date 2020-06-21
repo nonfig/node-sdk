@@ -1,19 +1,16 @@
 import * as sinon from 'sinon';
 import { options, testResponse } from '../constants';
-import * as NonfigInternal from '../../index';
+import { nonfig, Nonfig } from '../../index';
 import { expect } from 'chai';
 import { get } from 'lodash';
 import { NonfigError } from '../../src/error';
 import { NonfigRequest } from '../../src/request';
-import Api from '../../src/api';
 
 describe('Find Configurations by id', () => {
-    let api: Api;
+    let api: Nonfig;
     let request: sinon.SinonStub;
-    let nonfig: any;
 
     beforeEach(() => {
-        nonfig = NonfigInternal;
         api = nonfig(options);
         request = sinon.stub(NonfigRequest, 'exec');
     });

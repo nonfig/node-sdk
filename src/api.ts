@@ -1,7 +1,8 @@
 import { IConnection, IOption, NonfigResponse } from './interfaces';
 import { NonfigRequest } from './request';
+import { Nonfig } from './interfaces';
 
-export default class Api {
+export class Api implements Required<Nonfig> {
     private _options: IOption;
     private readonly _connection: IConnection;
 

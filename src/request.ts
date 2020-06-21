@@ -12,7 +12,7 @@ export class NonfigRequest {
             headers,
         });
         const response = await request;
-        const body: IConfigurationResponse = response.json();
+        const body: IConfigurationResponse = await response.json();
 
         if (!body.success) {
             throw new NonfigError(body.error);
