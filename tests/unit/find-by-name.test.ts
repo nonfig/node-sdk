@@ -1,14 +1,13 @@
 import * as sinon from 'sinon';
 import { options, testResponse } from '../constants';
-import Api from '../../src/api';
 import { expect } from 'chai';
 import { get } from 'lodash';
 import { IConfiguration } from '../../src/interfaces';
 import { NonfigRequest } from '../../src/request';
-import nonfig from '../../index';
+import { nonfig, Nonfig } from '../../index';
 
 describe('Find Configurations by name', () => {
-    let api: Api;
+    let api: Nonfig;
     let request: sinon.SinonStub;
 
     beforeEach(() => {
