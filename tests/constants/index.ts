@@ -1,4 +1,9 @@
-import { IConnection, IOption, NonfigResponse } from '../../src/interfaces';
+import {
+    ConfigType,
+    IConnection,
+    IOption,
+    NonfigResponse,
+} from '../../src/interfaces';
 
 const DEFAULT_HOST = 'localhost';
 const DEFAULT_PORT = 443;
@@ -29,7 +34,7 @@ export const testResponse: NonfigResponse = [
         name: 'test-1',
         path: '/some/path/',
         description: '',
-        type: 'JSON',
+        type: ConfigType.JSON,
         data: '{}',
         fullyQualifiedName: '/some/path/test-1',
         id: 'random-id',

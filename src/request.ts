@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import { IConfigurationResponse, IHeaders, NonfigResponse } from './interfaces';
 import { NonfigError } from './error';
+import { Configuration } from './configuration.entity';
 
 export class NonfigRequest {
     static async exec(
@@ -15,9 +16,15 @@ export class NonfigRequest {
         const body: IConfigurationResponse = await response.json();
 
         if (!body.success) {
-            throw new NonfigError(body.error);
+            throw new NonfigError(body.error || body.message);
         }
 
-        return body.data;
+        if (Array.isArray(body.data)) {
+            return body.data.map(
+                (configuration) => new Configuration(configuration)
+            );
+        }
+
+        return new Configuration(body.data);
     }
 }

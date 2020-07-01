@@ -2,9 +2,9 @@ import * as sinon from 'sinon';
 import { options, testResponse } from '../constants';
 import { expect } from 'chai';
 import { get } from 'lodash';
-import { IConfiguration } from '../../src/interfaces';
 import { NonfigRequest } from '../../src/request';
 import { nonfig, Nonfig } from '../../index';
+import { Configuration } from '../../src/configuration.entity';
 
 describe('Find Configurations by name', () => {
     let api: Nonfig;
@@ -24,7 +24,7 @@ describe('Find Configurations by name', () => {
         request.resolves(testResponse);
         const configuration = await api.findByName(name);
         expect(request.calledOnce).to.be.true;
-        expect((configuration as IConfiguration[]).length).to.equal(1);
+        expect((configuration as Configuration[]).length).to.equal(1);
         expect(get(configuration, '0.fullyQualifiedName')).to.equal(name);
     });
 
@@ -33,6 +33,6 @@ describe('Find Configurations by name', () => {
         request.resolves([]);
         const configurations = await api.findByName(name);
         expect(request.calledOnce).to.be.true;
-        expect((configurations as IConfiguration[]).length).to.equal(0);
+        expect((configurations as Configuration[]).length).to.equal(0);
     });
 });
