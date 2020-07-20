@@ -20,3 +20,7 @@ export function nonfig(options: IOption): Api {
 }
 
 export * from './src/interfaces';
+export * from './src/configuration.entity';
+export * from './src/api';
+export * from './src/request';
+export * from './src/error';
