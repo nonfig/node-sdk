@@ -1,6 +1,7 @@
-import { IConnection, IOption, NonfigResponse } from './interfaces';
+import { IConnection, IOption } from './interfaces';
 import { NonfigRequest } from './request';
 import { Nonfig } from './interfaces';
+import { Configuration } from './configuration.entity';
 
 export class Api implements Required<Nonfig> {
     private _options: IOption;
@@ -11,19 +12,19 @@ export class Api implements Required<Nonfig> {
         this._options = options;
     }
 
-    public findByPath(path: string): Promise<NonfigResponse> {
+    public findByPath(path: string) {
         return this.runFetchRequest(`configurations/path/${path}`);
     }
 
-    public findByName(name: string): Promise<NonfigResponse> {
+    public findByName(name: string) {
         return this.runFetchRequest(`configurations/name/${name}`);
     }
 
-    public findById(id: string): Promise<NonfigResponse> {
+    public findById(id: string) {
         return this.runFetchRequest(`configurations/id/${id}`);
     }
 
-    public findByLabels(labels: string[]): Promise<NonfigResponse> {
+    public findByLabels(labels: string[]) {
         return this.runFetchRequest(
             `configurations/labels/${labels.join(',')}`
         );
@@ -44,7 +45,9 @@ export class Api implements Required<Nonfig> {
         return `https://${host}:${port}${basePath}${apiVersion}/${path}`;
     }
 
-    private runFetchRequest(path: string): Promise<NonfigResponse> {
+    private runFetchRequest(
+        path: string
+    ): Promise<Configuration & Configuration[]> {
         return NonfigRequest.exec(
             this.getQualifiedUrl(path),
             this.getHeaders()

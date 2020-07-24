@@ -4,7 +4,6 @@ import { expect } from 'chai';
 import { get } from 'lodash';
 import { NonfigRequest } from '../../src/request';
 import { nonfig, Nonfig } from '../../';
-import { Configuration } from '../../src/configuration.entity';
 
 describe('Find Configurations by labels', () => {
     let api: Nonfig;
@@ -24,7 +23,7 @@ describe('Find Configurations by labels', () => {
         request.resolves(testResponse);
         const configuration = await api.findByLabels(labels);
         expect(request.calledOnce).to.be.true;
-        expect((configuration as Configuration[]).length).to.equal(1);
+        expect(configuration.length).to.equal(1);
         expect(get(configuration, '0.label')).to.eql(labels);
     });
 
@@ -33,6 +32,6 @@ describe('Find Configurations by labels', () => {
         request.resolves([]);
         const configurations = await api.findByLabels(labels);
         expect(request.calledOnce).to.be.true;
-        expect((configurations as Configuration[]).length).to.equal(0);
+        expect(configurations.length).to.equal(0);
     });
 });

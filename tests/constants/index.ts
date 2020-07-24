@@ -1,9 +1,5 @@
-import {
-    ConfigType,
-    IConnection,
-    IOption,
-    NonfigResponse,
-} from '../../src/interfaces';
+import { ConfigType, IConnection, IOption } from '../../src/interfaces';
+import { Configuration } from '../../src/configuration.entity';
 
 const DEFAULT_HOST = 'localhost';
 const DEFAULT_PORT = 443;
@@ -27,7 +23,7 @@ export const options: IOption = {
     cacheTtl: 1000,
 };
 
-export const testResponse: NonfigResponse = [
+export const testResponse: Configuration[] = [
     {
         label: ['test'],
         version: 1,

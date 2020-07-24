@@ -1,8 +1,8 @@
-import { NonfigResponse } from './IConfiguration';
+import { Configuration } from '../configuration.entity';
 
 export interface Nonfig {
-    findByPath(path: string): Promise<NonfigResponse>;
-    findByName(name: string): Promise<NonfigResponse>;
-    findById(id: string): Promise<NonfigResponse>;
-    findByLabels(labels: string[]): Promise<NonfigResponse>;
+    findByPath(path: string): Promise<Configuration & Configuration[]>;
+    findByName(name: string): Promise<Configuration & Configuration[]>;
+    findById(id: string): Promise<Configuration & Configuration[]>;
+    findByLabels(labels: string[]): Promise<Configuration & Configuration[]>;
 }

@@ -21,12 +21,12 @@ export interface IConfiguration {
     parsed?: any;
 }
 
-export type NonfigResponse = Configuration[] | Configuration;
+export type NonfigResponse = Configuration[] & Configuration;
 
 export interface IConfigurationResponse {
     success: boolean;
     error: string | null;
     message?: string | null;
     count: number;
-    data: NonfigResponse;
+    data: Configuration[] & Configuration;
 }
