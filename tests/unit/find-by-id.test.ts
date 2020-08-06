@@ -21,11 +21,11 @@ describe('Find Configurations by id', () => {
 
     it('should return configuration', async () => {
         const stubId = 'random-id';
-        request.resolves(get(testResponse, '0'));
+        request.resolves(testResponse);
         const configuration = await api.findById(stubId);
         expect(request.calledOnce).to.equal(true);
-        expect(get(configuration, 'id')).to.equal(stubId);
-        expect(get(configuration, 'version')).to.equal(1);
+        expect(get(configuration, '0.id')).to.equal(stubId);
+        expect(get(configuration, '0.version')).to.equal(1);
     });
 
     it('should return error for non-existent id', async () => {

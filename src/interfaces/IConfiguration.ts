@@ -28,5 +28,5 @@ export interface IConfigurationResponse {
     error: string | null;
     message?: string | null;
     count: number;
-    data: Configuration[] & Configuration;
+    data: Configuration[];
 }
