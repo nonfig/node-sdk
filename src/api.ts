@@ -2,7 +2,7 @@ import { IConnection, IOption } from './interfaces';
 import { NonfigRequest } from './request';
 import { Nonfig } from './interfaces';
 import { Configuration } from './configuration.entity';
-import {CacheFactory} from "./cache";
+import { CacheFactory } from './cache';
 
 export class Api implements Required<Nonfig> {
     private _options: IOption;
@@ -11,7 +11,7 @@ export class Api implements Required<Nonfig> {
     constructor(connection: IConnection, options: IOption) {
         this._connection = connection;
         this._options = options;
-        CacheFactory.setTtl(options.cacheTtl)
+        CacheFactory.setTtl(options.cacheTtl);
     }
 
     public findByPath(path: string) {
@@ -47,9 +47,7 @@ export class Api implements Required<Nonfig> {
         return `https://${host}:${port}${basePath}${apiVersion}/${path}`;
     }
 
-    private runFetchRequest(
-        path: string
-    ): Promise<Configuration[]> {
+    private runFetchRequest(path: string): Promise<Configuration[]> {
         return NonfigRequest.exec(
             this.getQualifiedUrl(path),
             this.getHeaders()

@@ -1,14 +1,13 @@
 import fetch from 'node-fetch';
-import {IConfigurationResponse, IHeaders} from './interfaces';
-import {NonfigError} from './error';
-import {Configuration} from './configuration.entity';
-import {CacheFactory} from './cache'
+import { IConfigurationResponse, IHeaders } from './interfaces';
+import { NonfigError } from './error';
+import { Configuration } from './configuration.entity';
+import { CacheFactory } from './cache';
 export class NonfigRequest {
     static async exec(
         path: string,
         headers: Partial<IHeaders>
     ): Promise<Configuration[]> {
-
         if (CacheFactory.isCacheStale() === false) {
             return CacheFactory.retrieve(path);
         }
@@ -24,10 +23,12 @@ export class NonfigRequest {
             throw new NonfigError(body.error || body.message);
         }
 
-        return body
-            .data
-            .map(
-                (configuration) => new Configuration(configuration)
-            );
+        const data = body.data.map(
+            (configuration) => new Configuration(configuration)
+        );
+
+        CacheFactory.store(path, data);
+
+        return data;
     }
 }

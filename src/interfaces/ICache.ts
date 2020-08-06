@@ -1,4 +1,4 @@
-import {Configuration} from "../configuration.entity";
+import { Configuration } from '../configuration.entity';
 
 export interface ICache {
     store(key: string, response: Configuration[]): void;
@@ -8,5 +8,5 @@ export interface ICache {
 }
 
 export interface CacheStorage {
-    [key: string]: Configuration[]
+    [key: string]: Configuration[];
 }
