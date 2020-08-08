@@ -1,6 +1,6 @@
 import { CacheStorage, ICache } from './interfaces/ICache';
 import { Configuration } from './configuration.entity';
-import { get, isEmpty } from 'lodash';
+import { get, isEmpty, has } from 'lodash';
 const DEFAULT_TTL = 60000;
 
 class Cache implements ICache {
@@ -17,6 +17,10 @@ class Cache implements ICache {
 
     retrieve(key: string): Configuration[] {
         return get(this.responses, key, []);
+    }
+
+    ifExists(key: string) {
+        return has(this.responses, key);
     }
 
     store(key: string, response: Configuration[]): void {

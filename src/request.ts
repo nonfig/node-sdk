@@ -3,12 +3,17 @@ import { IConfigurationResponse, IHeaders } from './interfaces';
 import { NonfigError } from './error';
 import { Configuration } from './configuration.entity';
 import { CacheFactory } from './cache';
+
 export class NonfigRequest {
     static async exec(
         path: string,
         headers: Partial<IHeaders>
     ): Promise<Configuration[]> {
-        if (CacheFactory.isCacheStale() === false) {
+        if (
+            CacheFactory.isCacheStale() === false &&
+            CacheFactory.ifExists(path)
+        ) {
+            console.log('cache hit');
             return CacheFactory.retrieve(path);
         }
 
