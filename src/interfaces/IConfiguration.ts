@@ -17,8 +17,9 @@ export interface IConfiguration {
     path: string;
     description: string;
     type: ConfigType;
-    data: string | unknown;
+    data: string;
     parsed?: any;
+    getRawData?(): string;
 }
 
 export type NonfigResponse = Configuration[] & Configuration;

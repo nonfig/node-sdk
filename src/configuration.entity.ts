@@ -5,10 +5,11 @@ import * as yamlParser from 'js-yaml';
 export class Configuration implements IConfiguration {
     constructor(instance: Partial<Configuration>) {
         Object.assign(this, instance);
+        this.rawData = instance.data;
         this.data = this.transformData();
     }
 
-    data: string | unknown;
+    data: any;
     description: string;
     fullyQualifiedName: string;
     id: string;
@@ -17,6 +18,11 @@ export class Configuration implements IConfiguration {
     path: string;
     type: ConfigType;
     version: number;
+    private readonly rawData?: string;
+
+    getRawData?() {
+        return this.rawData;
+    }
 
     private transformData?(): string | unknown {
         const data = this.data as string;
