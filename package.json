@@ -1,6 +1,6 @@
 {
     "name": "@nonfig/node-sdk",
-    "version": "0.0.31",
+    "version": "0.0.32",
     "description": "Nodejs SDK for Nonfig",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -39,7 +39,8 @@
     "devDependencies": {
         "@istanbuljs/nyc-config-typescript": "1.0.1",
         "@types/chai": "4.2.11",
-        "@types/js-yaml": "^3.12.5",
+        "@types/js-yaml": "3.12.5",
+        "@types/lodash": "4.14.160",
         "@types/mocha": "7.0.2",
         "@types/sinon": "9.0.0",
         "chai": "4.2.0",
@@ -59,8 +60,8 @@
     },
     "dependencies": {
         "@types/node-fetch": "2.5.7",
-        "fast-xml-parser": "^3.17.4",
-        "js-yaml": "^3.14.0",
+        "fast-xml-parser": "3.17.4",
+        "js-yaml": "3.14.0",
         "node-fetch": "2.6.0"
     },
     "_moduleAliases": {

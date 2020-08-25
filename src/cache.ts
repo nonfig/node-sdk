@@ -1,35 +1,43 @@
-import { CacheStorage, ICache } from './interfaces/ICache';
+import { CachePathResponse, CacheStorage, ICache } from './interfaces/ICache';
 import { Configuration } from './configuration.entity';
-import { get, isEmpty, has } from 'lodash';
+import { get, isEmpty, unset } from 'lodash';
 const DEFAULT_TTL = 60000;
 
 class Cache implements ICache {
     private static instance: Cache;
     private cacheTTL: number;
-    private lastFetchedAt: number;
     private responses: CacheStorage = {};
 
     constructor(cacheTTL: number) {
         this.cacheTTL = cacheTTL;
-        this.lastFetchedAt = 0;
         Cache.instance = this;
     }
 
-    retrieve(key: string): Configuration[] {
-        return get(this.responses, key, []);
+    ifExistsInCache(path: string): Configuration[] {
+        const response = get(this.responses, path, null) as CachePathResponse;
+
+        if (isEmpty(response)) {
+            return null;
+        }
+        const isStale = Date.now() - response.fetchedAt > this.cacheTTL;
+
+        if (isStale) {
+            unset(this.responses, path);
+            return null;
+        }
+
+        return response.data;
     }
 
-    ifExists(key: string) {
-        return has(this.responses, key);
+    retrieve(key: string): CachePathResponse {
+        return get(this.responses, `${key}`, null);
     }
 
     store(key: string, response: Configuration[]): void {
-        this.lastFetchedAt = Date.now();
-        this.responses[key] = response;
-    }
-
-    isCacheStale(): boolean {
-        return Date.now() - this.lastFetchedAt > this.cacheTTL;
+        this.responses[key] = {
+            fetchedAt: Date.now(),
+            data: response,
+        };
     }
 
     setTtl(ttl: number = DEFAULT_TTL): void {

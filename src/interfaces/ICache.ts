@@ -2,11 +2,16 @@ import { Configuration } from '../configuration.entity';
 
 export interface ICache {
     store(key: string, response: Configuration[]): void;
-    retrieve(key: string): Configuration[];
-    isCacheStale(): boolean;
+    retrieve(key: string): CachePathResponse;
+    ifExistsInCache(path: string): Configuration[];
     setTtl(ttl: number): void;
 }
 
+export interface CachePathResponse {
+    fetchedAt: number;
+    data: Configuration[];
+}
+
 export interface CacheStorage {
-    [key: string]: Configuration[];
+    [key: string]: CachePathResponse;
 }

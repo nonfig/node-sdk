@@ -9,12 +9,10 @@ export class NonfigRequest {
         path: string,
         headers: Partial<IHeaders>
     ): Promise<Configuration[]> {
-        if (
-            CacheFactory.isCacheStale() === false &&
-            CacheFactory.ifExists(path)
-        ) {
-            console.log('cache hit');
-            return CacheFactory.retrieve(path);
+        const fromCache = CacheFactory.ifExistsInCache(path);
+
+        if (fromCache) {
+            return fromCache;
         }
 
         const request: Promise<any> = fetch(path, {
