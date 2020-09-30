@@ -4,4 +4,5 @@ export interface IOption {
     debug?: boolean;
     cacheEnable?: boolean;
     cacheTtl?: number;
+    agent?: string;
 }

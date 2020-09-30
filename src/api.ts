@@ -33,8 +33,9 @@ export class Api implements Required<Nonfig> {
     }
 
     private getHeaders() {
+        let userAgent = `Nonfig/v1 ${this._options.agent || 'NodeBindings'}`;
         return {
-            'User-Agent': `Nonfig/v1 NodeBindings`,
+            'User-Agent': userAgent,
             'Content-Type': 'application/json',
             Accept: 'application/json',
             Authorization: `Bearer ${this._options.appId}:${this._options.appSecret}`,
