@@ -3,6 +3,7 @@ import { NonfigRequest } from './request';
 import { Nonfig } from './interfaces';
 import { Configuration } from './configuration.entity';
 import { CacheFactory } from './cache';
+import { IRequestOption } from './interfaces/IRequestOption';
 
 export class Api implements Required<Nonfig> {
     private _options: IOption;
@@ -14,21 +15,31 @@ export class Api implements Required<Nonfig> {
         CacheFactory.setTtl(options.cacheTtl);
     }
 
-    public findByPath(path: string) {
-        return this.runFetchRequest(`configurations/path/${path}`);
+    public findByPath(
+        path: string,
+        options: IRequestOption = { noCache: false }
+    ) {
+        return this.runFetchRequest(`configurations/path/${path}`, options);
     }
 
-    public findByName(name: string) {
-        return this.runFetchRequest(`configurations/name/${name}`);
+    public findByName(
+        name: string,
+        options: IRequestOption = { noCache: false }
+    ) {
+        return this.runFetchRequest(`configurations/name/${name}`, options);
     }
 
-    public findById(id: string) {
-        return this.runFetchRequest(`configurations/id/${id}`);
+    public findById(id: string, options: IRequestOption = { noCache: false }) {
+        return this.runFetchRequest(`configurations/id/${id}`, options);
     }
 
-    public findByLabels(labels: string[]) {
+    public findByLabels(
+        labels: string[],
+        options: IRequestOption = { noCache: false }
+    ) {
         return this.runFetchRequest(
-            `configurations/labels/${labels.join(',')}`
+            `configurations/labels/${labels.join(',')}`,
+            options
         );
     }
 
@@ -48,10 +59,14 @@ export class Api implements Required<Nonfig> {
         return `https://${host}:${port}${basePath}${apiVersion}/${path}`;
     }
 
-    private runFetchRequest(path: string): Promise<Configuration[]> {
+    private runFetchRequest(
+        path: string,
+        options: IRequestOption
+    ): Promise<Configuration[]> {
         return NonfigRequest.exec(
             this.getQualifiedUrl(path),
-            this.getHeaders()
+            this.getHeaders(),
+            options
         );
     }
 }

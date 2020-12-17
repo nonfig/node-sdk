@@ -3,11 +3,13 @@ import { IConfigurationResponse, IHeaders } from './interfaces';
 import { NonfigError } from './error';
 import { Configuration } from './configuration.entity';
 import { CacheFactory } from './cache';
+import { IRequestOption } from './interfaces/IRequestOption';
 
 export class NonfigRequest {
     static async exec(
         path: string,
-        headers: Partial<IHeaders>
+        headers: Partial<IHeaders>,
+        options: IRequestOption
     ): Promise<Configuration[]> {
         const fromCache = CacheFactory.ifExistsInCache(path);
 
@@ -30,7 +32,9 @@ export class NonfigRequest {
             (configuration) => new Configuration(configuration)
         );
 
-        CacheFactory.store(path, data);
+        if (!options?.noCache) {
+            CacheFactory.store(path, data);
+        }
 
         return data;
     }
