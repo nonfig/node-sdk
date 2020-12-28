@@ -36,3 +36,17 @@ export const testResponse: Configuration[] = [
         id: 'random-id',
     },
 ];
+
+export const textualTestResponse: Configuration[] = [
+    {
+        label: ['test'],
+        version: 1,
+        name: 'test-1',
+        path: '/some/path/',
+        description: '',
+        type: ConfigType.TEXT,
+        data: 'some-text-data',
+        fullyQualifiedName: '/some/path/test-1',
+        id: 'random-id',
+    },
+];

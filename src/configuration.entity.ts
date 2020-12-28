@@ -52,6 +52,8 @@ export class Configuration implements IConfiguration {
             }
 
             return xmlParser.parse(data);
+        } else {
+            return this.getRawData();
         }
     }
 }
