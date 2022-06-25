@@ -62,7 +62,7 @@
         "@types/node-fetch": "2.5.7",
         "fast-xml-parser": "3.17.4",
         "js-yaml": "3.14.0",
-        "node-fetch": "2.6.0"
+        "node-fetch": "2.6.7"
     },
     "_moduleAliases": {
         "@package": "./dist/package.json"
