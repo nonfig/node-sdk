@@ -48,7 +48,7 @@
         "codecov": "3.6.5",
         "husky": "4.2.5",
         "lodash.get": "4.4.2",
-        "mocha": "7.1.2",
+        "mocha": "10.2.0",
         "nyc": "15.0.1",
         "prettier": "2.0.5",
         "rimraf": "^3.0.2",
